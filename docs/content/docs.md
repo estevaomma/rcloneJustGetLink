@@ -447,7 +447,7 @@ attributes such as file mode, owner, extended attributes (not
 Windows).
 
 Note that arbitrary metadata may be added to objects using the
-`--upload-metadata key=value` flag when the object is first uploaded.
+`--metadata-set key=value` flag when the object is first uploaded.
 This flag can be repeated as many times as necessary.
 
 ### Types of metadata
@@ -1316,6 +1316,12 @@ Rclone will exit with exit code 8 if the transfer limit is reached.
 Setting this flag enables rclone to copy the metadata from the source
 to the destination. For local backends this is ownership, permissions,
 xattr etc. See the [#metadata](metadata section) for more info.
+
+### --metadata-set key=value
+
+Add metadata `key` = `value` when uploading. This can be repeated as
+many times as required. See the [#metadata](metadata section) for more
+info.
 
 ### --cutoff-mode=hard|soft|cautious ###
 
