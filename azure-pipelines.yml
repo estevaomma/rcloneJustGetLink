@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool: default
+#  vmImage: ubuntu-latest
+
+- task: GoTool@0
+  inputs:
+    version: '1.10'
+
+- task: Go@0
+  inputs:
+    command: 'build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'rclone.exe'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
