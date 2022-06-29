@@ -9,6 +9,8 @@ trigger:
 pool: default
 #  vmImage: ubuntu-latest
 
+steps:
+
 - task: GoTool@0
   inputs:
     version: '1.10'
